@@ -32,10 +32,13 @@ final class PostStatusToWebsiteCommandHandler extends BaseCommandHandler impleme
         $statusDto = $this->createStatusDto($fppStatus);
         $result = $this->postStatusToWebsite($statusDto);
 
+        // get next request from website and add to queue when active
+        
         if ($result) {
             $this->setLatestValues($fppStatus);
         }
         return true;
+
     }
 
     private function shouldPostStatus($fppStatus)
@@ -52,7 +55,7 @@ final class PostStatusToWebsiteCommandHandler extends BaseCommandHandler impleme
 
     private function createStatusDto($fppStatus)
     {
-        $statusDto = new ShowPulseStatusRequestDto($fppStatus, $fppStatus->current_sequence, $this->getShowUuid());
+        $statusDto = new ShowPulseStatusRequestDto($fppStatus, $fppStatus->current_sequence,$fppstatus->current_song, $this->getShowUuid());
 
         if ($this->isNullOrEmpty($fppStatus->current_song)) {
             return $statusDto;
@@ -92,13 +95,14 @@ final class ShowPulseStatusRequestDto
     public $song_artist;
     public $fpp_status_id;
 
-    public function __construct($fppStatus, $sequence_filename, $showId)
+    public function __construct($fppStatus, $sequence_filename, $songFileName, $showId)
     {
         $this->show_id = $showId;
         $this->fpp_status_id = $fppStatus->status;
         $this->warnings = count($fppStatus->warnings);
         $this->sequence_filename = $sequence_filename;
-        $this->song_filename = $fppStatus->current_song;
+        // $this->song_filename = $fppStatus->current_song;
+        $this->song_filename = $songFileName;
         $this->song_title = str_replace("_", " ", str_replace(".fseq", "", $sequence_filename));
         $this->song_artist = null;
     }

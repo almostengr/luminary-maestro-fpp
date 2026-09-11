@@ -19,7 +19,7 @@ $delaySeconds = 2;
 do {
     try {
         $postStatusCommand->execute();
-        $nextSelectionCommand->execute();
+        // $nextSelectionCommand->execute();
 
         sleep(ShowPulseConstant::SLEEP_SHORT_VALUE);
 

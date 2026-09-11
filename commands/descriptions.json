@@ -25,18 +25,28 @@
         "args": []
     },
     {
-        "name": "Light Show Pulse-Insert Next Jukebox Selection",
-        "script": "JukeboxSelectionInsertNextCommandRunner.php",
-        "args": []
-    },
-    {
-        "name": "Light Show Pulse-Post Status To Website",
-        "script": "PostStatusToWebsiteCommandRunner.php",
-        "args": []
-    },
-    {
         "name": "Light Show Pulse-Send Sequence Options",
         "script": "JukeboxOptionsUpdateCommandRunner.php",
+        "args": []
+    },
+    {
+        "name": "Light Show Pulse-Display Online",
+        "script": "DisplayOnlineCommandRunner.php",
+        "args": []
+    },
+    {
+        "name": "Light Show Pulse-Display Offline",
+        "script": "DisplayOfflineCommandRunner.php",
+        "args": []
+    },
+    {
+        "name" : "Light Show Pulse-Display Online and Requests Enabled",
+        "script" : "DisplayOnlineAndRequestsEnabledCommandRunner.php",
+        "args": []
+    },
+    {
+        "name" : "Light Show Pulse-Display Offline and Requests Disabled",
+        "script": "DisplayOfflineAndRequestsDisableCommandRunner.php",
         "args": []
     }
 ]
