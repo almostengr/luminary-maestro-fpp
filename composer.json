@@ -5,7 +5,7 @@
     "homepage": "https://github.com/almostengr/show-pulse-fpp",
     "keywords": ["fpp", "falcon pi player", "fpp plugin"],
     "require": {
-        "phpunit/phpunit": "^11.2",
+        "phpunit/phpunit": "^13.4",
         "php": ">=7.0"
     },
     "license": "MIT",
